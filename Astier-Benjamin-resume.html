@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résumé - Dossier Personnel Goldorak DB</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', 'Georgia', serif;
+            background-color: #f2f2f5;
+            padding: 20px;
+            color: #1e1e2a;
+            font-size: 12pt;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 50px 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            border-radius: 8px;
+        }
+
+        .cover-page {
+            text-align: center;
+            padding: 30px 20px 50px 20px;
+            border-bottom: 3px double #0a0a2a;
+            margin-bottom: 40px;
+            page-break-after: always;
+        }
+        .cover-page h1 {
+            font-size: 32pt;
+            color: #0a0a2a;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: none;
+            padding: 0;
+        }
+        .cover-page .sub {
+            font-size: 18pt;
+            color: #1a4b8c;
+            margin-top: 8px;
+            font-weight: normal;
+        }
+        .cover-page .divider {
+            width: 120px;
+            height: 4px;
+            background: #1a4b8c;
+            margin: 22px auto;
+        }
+        .cover-page .meta {
+            margin-top: 30px;
+            font-size: 13pt;
+            color: #333;
+        }
+        .cover-page .badges-cover {
+            margin: 22px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px;
+        }
+        .cover-page .badges-cover img {
+            height: 20px;
+        }
+
+        h2 {
+            font-size: 20pt;
+            color: #1a4b8c;
+            margin-top: 35px;
+            margin-bottom: 18px;
+            padding-bottom: 6px;
+            border-bottom: 3px solid #1a4b8c;
+            display: block;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-size: 16pt;
+            color: #2c3e50;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            page-break-after: avoid;
+        }
+
+        p {
+            font-size: 12pt;
+            line-height: 1.7;
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin-left: 25px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            font-size: 12pt;
+            line-height: 1.7;
+            margin-bottom: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0 25px 0;
+            font-size: 10.5pt;
+            page-break-inside: avoid;
+        }
+        table th {
+            background: #0a0a2a;
+            color: white;
+            padding: 6px 8px;
+            text-align: left;
+            font-weight: 600;
+        }
+        table td, table th {
+            border: 1px solid #888;
+            padding: 6px 8px;
+            vertical-align: top;
+        }
+        table tr:nth-child(even) {
+            background: #f4f6f9;
+        }
+
+        .footer {
+            margin-top: 15px;
+            padding-top: 8px;
+            border-top: 3px double #0a0a2a;
+            font-size: 12pt;
+            text-align: center;
+            color: #333;
+            page-break-inside: avoid;
+        }
+        .footer .github-links {
+            margin-top: 6px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 20px;
+        }
+        .footer .github-links a {
+            color: #0a0a2a;
+            text-decoration: underline;
+            font-weight: 500;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: #f0f4f8;
+            border: 1px solid #dee2e6;
+            transition: background 0.2s;
+            word-break: break-all;
+            font-size: 10.5pt;
+        }
+        .footer .github-links a:hover {
+            background: #e2e6ea;
+        }
+        .footer .version {
+            font-size: 9.5pt;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        @page {
+            margin: 2.2cm 2cm 2cm 2cm;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+                font-size: 11pt;
+            }
+            .container {
+                max-width: 100%;
+                padding: 20px 30px;
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .cover-page {
+                page-break-after: always;
+            }
+            .footer .github-links a {
+                background: none;
+                border: none;
+                padding: 4px 8px;
+            }
+            .footer .version {
+                font-size: 9pt;
+            }
+            @page {
+                @bottom-center {
+                    content: "Page " counter(page) " / " counter(pages);
+                    font-size: 10pt;
+                    color: #555;
+                    font-family: 'Times New Roman', serif;
+                }
+            }
+            .cover-page {
+                page-break-after: always;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            .cover-page h1 { font-size: 24pt; }
+            .footer .github-links { flex-direction: column; align-items: center; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- ============================================================ -->
+    <!-- PAGE DE COUVERTURE                                             -->
+    <!-- ============================================================ -->
+    <div class="cover-page">
+        <h1>Resume du Dossier Personnel</h1>
+        <div class="sub">Goldorak DB</div>
+        <div class="divider"></div>
+
+        <div class="badges-cover">
+            <img src="https://img.shields.io/badge/version-7.7.7-blue.svg" alt="Version">
+            <img src="https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg" alt="Node">
+            <img src="https://img.shields.io/badge/react-19.2.0-61dafb.svg?logo=react" alt="React">
+            <img src="https://img.shields.io/badge/docker-ready-2496ED?logo=docker" alt="Docker">
+            <img src="https://img.shields.io/badge/Express-5.x-000000?logo=express" alt="Express">
+            <img src="https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white" alt="MySQL">
+            <img src="https://img.shields.io/badge/Auth-OAuth2-3b82f6?logo=oauth" alt="OAuth2">
+            <img src="https://img.shields.io/badge/license-ISC-yellow.svg" alt="License">
+        </div>
+
+        <div class="meta">
+            <strong>Benjamin ASTIER</strong><br>
+            La Plateforme — Martigues<br>
+            Session 2025-2026<br>
+            <span style="font-size: 12pt; color: #555;">Version du resume : 12/05/2026</span>
+        </div>
+        <div style="margin-top: 20px; font-size: 11pt; color: #666;">
+            Document de synthese du dossier personnel
+        </div>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- INTRODUCTION                                                   -->
+    <!-- ============================================================ -->
+    <h2>1. Contexte et objectifs du projet</h2>
+    <p>
+        J'ai developpe une application web full-stack nommee <strong>Goldorak DB</strong> dans le cadre de ma formation de <strong>Developpeur Web et Web Mobile</strong> a l'ecole La Plateforme (Martigues). Ce projet personnel vise a demontrer l'ensemble des competences acquises durant le cycle de formation, en couvrant l'integralite du cycle de developpement d'une application web moderne.
+    </p>
+    <p>
+        L'application permet de gerer l'univers de la serie culte <em>Goldorak (UFO Robot Grendizer)</em> a travers une base de donnees interactive, securisee et immersive. Elle propose une interface de gestion complete pour :
+    </p>
+    <ul>
+        <li><strong>Personnages</strong> : nom FR/JP, faction, role, age, planete d'origine, description</li>
+        <li><strong>Robots</strong> : nom FR/JP, pilote, type, hauteur, poids, description</li>
+        <li><strong>Armes</strong> : nom FR/JP, robot associe, puissance, frequence d'utilisation</li>
+        <li><strong>Vaisseaux</strong> : nom FR/JP, type, pilote, faction, description</li>
+        <li><strong>Episodes</strong> : titres FR/JP, numeros, dates de diffusion, resume</li>
+        <li><strong>Monstres</strong> : nom FR/JP, episode d'apparition, type, taille, puissance, description</li>
+        <li><strong>Utilisateurs</strong> : authentification OAuth2 (Google/GitHub) et mode invite</li>
+    </ul>
+    <p>
+        L'application integre des fonctionnalites avancees : CRUD complet, recherche avec debounce, pagination, export CSV, tableau de bord en temps reel, lecteur musical thematique et un easter egg (Code Konami) pour les fans de jeux video retro.
+    </p>
+
+    <!-- ============================================================ -->
+    <!-- STRUCTURE DU DOSSIER                                           -->
+    <!-- ============================================================ -->
+    <h2>2. Structure du dossier personnel</h2>
+    <p>
+        J'ai conçu un dossier professionnel structure en plusieurs chapitres, chacun couvrant un aspect specifique du projet, de l'analyse des besoins au deploiement. Le document respecte les exigences du Ministere du Travail et totalise <strong>plus de 30 pages imprimees</strong>.
+    </p>
+
+    <h3>2.1 Chapitres et pagination</h3>
+    <table>
+        <thead>
+            <tr><th>Chapitre</th><th>Contenu</th><th>Pages (PDF)</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>1 &amp; 1.1</td><td>Contexte, objectifs, public cible, perimetre fonctionnel</td><td>p.3</td></tr>
+            <tr><td>2 &amp; 2.2</td><td>Analyse fonctionnelle : cas d'utilisation, specifications</td><td>p.4</td></tr>
+            <tr><td>3</td><td>Specifications techniques globales (tableau des technologies)</td><td>p.5</td></tr>
+            <tr><td>4</td><td>Architecture logicielle (schema client-serveur)</td><td>p.6</td></tr>
+            <tr><td>5</td><td>Modelisation de la base de donnees (3FN) + legende</td><td>p.7</td></tr>
+            <tr><td>5.1</td><td>Dictionnaire des donnees</td><td>p.8</td></tr>
+            <tr><td>5.2 &amp; 6</td><td>Contraintes d'integrite + presentation du backend</td><td>p.9</td></tr>
+            <tr><td>6.1</td><td>Middleware JWT (extrait de code)</td><td>p.10</td></tr>
+            <tr><td>6.2</td><td>Endpoints detailles (tableau des routes CRUD)</td><td>p.11</td></tr>
+            <tr><td>7</td><td>Frontend React 19 (introduction)</td><td>p.12</td></tr>
+            <tr><td>7.2</td><td>Gestion d'etat et routage (React Router)</td><td>p.13</td></tr>
+            <tr><td>8</td><td>Authentification OAuth2 et mode invite</td><td>p.14</td></tr>
+            <tr><td>9</td><td>Conteneurisation Docker</td><td>p.15-16</td></tr>
+            <tr><td>10</td><td>Fonctionnalites transverses (lecteur audio, Easter Egg)</td><td>p.17</td></tr>
+            <tr><td>11</td><td>Captures d'ecran (preuves)</td><td>p.18-30</td></tr>
+            <tr><td>12</td><td>Conclusion et competences validees</td><td>p.31</td></tr>
+            <tr><td>Annexe A</td><td>Glossaire technique</td><td>p.32</td></tr>
+            <tr><td>Annexe B</td><td>Dependances npm</td><td>p.33</td></tr>
+            <tr><td>Annexe C</td><td>Planning de developpement + footer</td><td>p.34</td></tr>
+        </tbody>
+    </table>
+    <p style="font-style: italic; margin-top: 8px;">Total : 34 pages imprimees (police Times New Roman, taille 12pt).</p>
+
+    <!-- ============================================================ -->
+    <!-- TECHNOLOGIES                                                   -->
+    <!-- ============================================================ -->
+    <h2>3. Technologies utilisees</h2>
+    <table>
+        <thead>
+            <tr><th>Composant</th><th>Technologie</th><th>Version</th><th>Role</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Frontend</td><td>React</td><td>19.2.0</td><td>Interface utilisateur dynamique et reactive</td></tr>
+            <tr><td>Frontend</td><td>Vite</td><td>7.2.5</td><td>Build tool et serveur de developpement HMR</td></tr>
+            <tr><td>Frontend</td><td>React Router DOM</td><td>7.13.0</td><td>Routage cote client</td></tr>
+            <tr><td>Backend</td><td>Node.js</td><td>20.15.0 LTS</td><td>Runtime JavaScript serveur</td></tr>
+            <tr><td>Backend</td><td>Express</td><td>5.2.1</td><td>Framework web pour l'API REST</td></tr>
+            <tr><td>Backend</td><td>Passport.js</td><td>0.7.0</td><td>Middleware OAuth2</td></tr>
+            <tr><td>Backend</td><td>jsonwebtoken</td><td>9.0.3</td><td>Generation et verification des JWT</td></tr>
+            <tr><td>Base de donnees</td><td>MySQL</td><td>8.0</td><td>SGBDR relationnel</td></tr>
+            <tr><td>Driver BDD</td><td>mysql2 (promise)</td><td>3.16.3</td><td>Acces asynchrone a MySQL</td></tr>
+            <tr><td>Validation</td><td>express-validator</td><td>7.3.1</td><td>Validation des requetes entrantes</td></tr>
+            <tr><td>Logging</td><td>Winston</td><td>3.11.0</td><td>Journalisation des evenements</td></tr>
+            <tr><td>Conteneurisation</td><td>Docker</td><td>24.x</td><td>Isolation et packaging des services</td></tr>
+            <tr><td>Orchestration</td><td>Docker Compose</td><td>2.x</td><td>Gestion multi-services</td></tr>
+            <tr><td>Serveur Web (prod)</td><td>Nginx</td><td>stable-alpine</td><td>Hebergement statique du build frontend</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ============================================================ -->
+    <!-- COMPETENCES VALIDEES                                           -->
+    <!-- ============================================================ -->
+    <h2>4. Competences validees</h2>
+    <p>
+        Ce projet couvre de maniere exhaustive l'ensemble du perimetre du titre professionnel <strong>"Developpeur Web et Web Mobile"</strong> et demontre ma capacite a mener un projet de bout en bout.
+    </p>
+    <ul>
+        <li><strong>Frontend</strong> : Maquettage (Figma), developpement de composants React 19, gestion d'etat, routage, responsive design, interactions dynamiques (tooltips, modales), integration de lecteur audio, lightbox pour les images.</li>
+        <li><strong>Backend</strong> : Conception d'API REST avec Express, authentification OAuth2 (Google/GitHub), gestion de sessions JWT, validation des donnees, logging avec Winston.</li>
+        <li><strong>Base de donnees</strong> : Modelisation Merise (3FN), ecriture de scripts SQL, gestion des relations et contraintes d'integrite (ON DELETE CASCADE / SET NULL), requetes preparees.</li>
+        <li><strong>Deploiement</strong> : Conteneurisation Docker, orchestration Docker Compose, build multi-stage (React → Nginx), gestion des variables d'environnement.</li>
+        <li><strong>Securite</strong> : Protection contre les injections SQL, validation des entrees, CORS, cookies securises, mode invite.</li>
+        <li><strong>Documentation</strong> : README complet, dossier professionnel structure, captures d'ecran annotees.</li>
+    </ul>
+
+    <!-- ============================================================ -->
+    <!-- FONCTIONNALITES MARQUANTES                                     -->
+    <!-- ============================================================ -->
+    <h2>5. Fonctionnalites marquantes</h2>
+    <ul>
+        <li><strong>Authentification OAuth2</strong> : Connexion via Google et GitHub, couplee a une generation de JWT pour securiser les sessions API.</li>
+        <li><strong>Mode invite</strong> : Acces en lecture seule sans configuration de compte, ideal pour les demonstrations.</li>
+        <li><strong>Recherche avancee</strong> : Barre de recherche avec debounce (300ms) declenchee apres 2 caracteres, sur plusieurs champs.</li>
+        <li><strong>Pagination</strong> : Selecteur de 10, 20, 50 ou 100 elements par page, avec boutons de navigation stylises.</li>
+        <li><strong>Tooltip de description</strong> : Affichage des descriptions longues dans une modale au clic, avec overlay opaque et fermeture automatique.</li>
+        <li><strong>Lecteur musical</strong> : Playlist de 4 titres emblematiques de Goldorak, avec controle lecture/pause et selection directe.</li>
+        <li><strong>Easter Egg</strong> : Code Konami (↑ ↑ ↓ ↓ ← → ← → B A) declenchant une surprise dans l'application.</li>
+        <li><strong>Export CSV</strong> : Telechargement des donnees de chaque entite au format CSV.</li>
+    </ul>
+
+    <!-- ============================================================ -->
+    <!-- BASE DE DONNEES                                                -->
+    <!-- ============================================================ -->
+    <h2>6. Modelisation de la base de donnees</h2>
+    <p>
+        La base de donnees a ete concue selon les regles de la <strong>Troisieme Forme Normale (3FN)</strong> afin d'eliminer toute redondance et garantir l'integrite des donnees. Le schema comprend <strong>7 tables</strong> :
+    </p>
+    <ul>
+        <li><strong>personnages</strong> : id, nom_fr, nom_jp, faction, role, age, planete_origine, description</li>
+        <li><strong>robots</strong> : id, nom_fr, nom_jp, pilote_id (FK), type_robot, hauteur, poids, description</li>
+        <li><strong>armes</strong> : id, nom_fr, nom_jp, robot_id (FK), puissance, frequence_utilisation, description</li>
+        <li><strong>vaisseaux</strong> : id, nom_fr, nom_jp, type_vaisseau, pilote_id (FK), faction, description</li>
+        <li><strong>episodes</strong> : id, titre_fr, titre_jp, numero_fr, numero_jp, diffuse_jp, diffuse_fr, resume</li>
+        <li><strong>monstres</strong> : id, nom_fr, nom_jp, episode_id (FK), type_monstre, taille, puissance, description</li>
+        <li><strong>users</strong> : id, oauth_provider, oauth_id, email (UNIQUE), display_name, avatar_url, created_at, last_login</li>
+    </ul>
+    <p>
+        <strong>Contraintes d'integrite :</strong>
+    </p>
+    <ul>
+        <li><code>ON DELETE CASCADE</code> sur <code>armes.robot_id</code> (suppression automatique des armes liees).</li>
+        <li><code>ON DELETE SET NULL</code> sur <code>robots.pilote_id</code>, <code>vaisseaux.pilote_id</code> et <code>monstres.episode_id</code>.</li>
+        <li><code>UNIQUE</code> sur <code>users.email</code> pour eviter les doublons.</li>
+    </ul>
+
+    <!-- ============================================================ -->
+    <!-- ARCHITECTURE LOGICIELLE                                        -->
+    <!-- ============================================================ -->
+    <h2>7. Architecture logicielle</h2>
+    <p>
+        L'architecture est organisee selon un modele <strong>client-serveur</strong> classique, avec une separation stricte des responsabilites :
+    </p>
+    <ul>
+        <li><strong>Frontend (React/Vite)</strong> : Composants UI, hooks personnalises, contextes d'authentification, routage.</li>
+        <li><strong>Backend (Node.js/Express)</strong> : Middlewares (CORS, JSON, logging, JWT), routes API versionnees (<code>/api/v1</code>), couche d'acces aux donnees.</li>
+        <li><strong>Base de donnees (MySQL 8.0)</strong> : 7 tables relationnelles, contraintes d'integrite, index pour les recherches.</li>
+        <li><strong>Deploiement (Docker)</strong> : 3 services (db, backend, frontend) orchestres avec Docker Compose.</li>
+    </ul>
+    <p>
+        Cette architecture permet une <strong>maintenabilite</strong> et une <strong>evolutivite</strong> optimales. Chaque couche est testable independamment.
+    </p>
+    <!-- ============================================================ -->
+    <!-- CAPTURES D'ECRAN                                               -->
+    <!-- ============================================================ -->
+    <h2>8. Captures d'ecran (preuves)</h2>
+    <p>
+        Le dossier professionnel contient de nombreuses captures d'ecran illustrant concretement les fonctionnalites developpees. Chaque capture est accompagnee d'une legende indiquant la reference du fichier source ou l'URL correspondante.
+    </p>
+    <p>
+        Les captures couvrent l'ensemble du projet :
+    </p>
+    <ul>
+        <li>Page de connexion (Google/GitHub/invite)</li>
+        <li>Tableau de bord (statistiques, statut API)</li>
+        <li>Catalogue des personnages (badges, recherche, pagination, tooltip)</li>
+        <li>Modal CRUD dynamique avec champs relationnels "ID X = Nom"</li>
+        <li>Lecteur musical et playlist interactive</li>
+        <li>API Health Check (endpoint /health)</li>
+        <li>Schema BDD (3FN) et statistiques des tables</li>
+        <li>Orchestration Docker (docker-compose.yml)</li>
+        <li>Easter Egg (Code Konami)</li>
+    </ul>
+    <p style="font-style: italic; margin-top: 6px;">
+        Les captures d'ecran sont optimisees pour l'impression : les images importantes sont agrandies, et le schema BDD est imprime sur une page entiere avec sa legende complete.
+    </p>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER AVEC LIENS GITHUB ET VERSION                           -->
+    <!-- ============================================================ -->
+    <div class="footer">
+        <div style="font-weight: bold; font-size: 13pt;">
+            Benjamin ASTIER — Dossier Personnel — Goldorak DB
+        </div>
+        <div style="font-size: 11pt; color: #555; margin-top: 4px;">
+            La Plateforme — Martigues — Session 2025-2026
+        </div>
+        <div class="github-links">
+            <a href="https://github.com/Septieme7/Goldorak-V1.git" target="_blank">
+                Depot GitHub : https://github.com/Septieme7/Goldorak-V1.git
+            </a>
+            <a href="https://github.com/Septieme7/Goldorak-V1/blob/main/README.md" target="_blank">
+                README.md : https://github.com/Septieme7/Goldorak-V1/blob/main/README.md
+            </a>
+            <a href="https://github.com/Septieme7/Dossier-EXAMEN-2026/tree/main" target="_blank">
+                Dossier EXAMEN 2026 : https://github.com/Septieme7/Dossier-EXAMEN-2026/tree/main
+            </a>
+        </div>
+        <div class="version">
+            Resume genere le 12/05/2026 — Version 7.7.7
+        </div>
+    </div>
+
+</div> <!-- Fin container -->
+</body>
+</html>
